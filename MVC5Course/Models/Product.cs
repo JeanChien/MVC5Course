@@ -11,6 +11,7 @@ namespace MVC5Course.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Product
     {
@@ -20,9 +21,13 @@ namespace MVC5Course.Models
         }
     
         public int ProductId { get; set; }
+        [Required]
         public string ProductName { get; set; }
+        [Required]
         public Nullable<decimal> Price { get; set; }
+         [Required]
         public Nullable<bool> Active { get; set; }
+         [Required]
         public Nullable<decimal> Stock { get; set; }
     
         public virtual ICollection<OrderLine> OrderLine { get; set; }
