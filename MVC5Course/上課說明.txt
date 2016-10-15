@@ -1,0 +1,47 @@
+﻿小技巧
+一、mvcaction4 是一個程式碼 snapshop 
+mvcation4 按 2 次的 tab 鍵是  codesnippet ，會自動產生程式。
+
+二、搜尋：
+	在任何一個地方打 ctrl + ,  就可以搜尋關鍵字在整個專案檔。
+
+二之一、自動載入 namespaces
+	按 ctrl + .
+
+三、web 程式是建構在 http 上。
+	client的 browser 會傳一個 http 封包(request)給 server 端
+	SERVER端開始解析收到的封包，
+	SERVER會送 http response 傳給 client 
+
+如有一個HTMLt檔，2個圖檔，2個javascritp, 2個CSS，總共會送 7個封包給 server
+
+一個request只會執行一個handler
+
+四、MVC 架構
+Controller：在做輸入、輸出的事情。
+			輸入部份：因 為server 會接到 client 傳過來的 request
+			輸出的部份：控制器會設定要用什麼方式回傳給 client 端，如用 json or view ...
+			但不決定 view 的實際結構。
+	controller要夠輕：
+		「輕」是指邏輯清楚。
+			處理 client 端與 server 端的互動。  
+	建議一個 controller 的一個 action 程式不要超過20行。
+
+View：顯示邏輯。
+	View 要夠笨。
+		即邏輯要簡單。
+		資料的邏輯與篩選不能寫在 View。
+		裡面可以寫 if else 去判斷要不要顯示。
+		也可以寫 for loop 去顯示多筆資料。
+
+Model:資料存取(負責跟資料庫要資料)、商業邏輯和驗證
+	Model要肥。
+		寫 model 時不要考慮 view 的長相、controller要怎麼寫。
+
+(client) http request ->(server) controller -> (server) view
+
+
+
+
+
+
