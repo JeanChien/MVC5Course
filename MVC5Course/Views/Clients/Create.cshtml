@@ -2,12 +2,14 @@
 
 @{
     ViewBag.Title = "Create";
+
+    Layout = ""; //layout 不會載入，即畫面上的頁頭、頁尾不會載入
 }
 
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Create","Clients")) 
 {
     @Html.AntiForgeryToken()
     
