@@ -2,6 +2,8 @@
 一、mvcaction4 是一個程式碼 snapshop 
 mvcation4 按 2 次的 tab 鍵是  codesnippet ，會自動產生程式。
 
+MVCP + 2 個 table
+
 二、搜尋：
 	在任何一個地方打 ctrl + ,  就可以搜尋關鍵字在整個專案檔。
 
