@@ -172,6 +172,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\EFController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
@@ -308,6 +309,10 @@
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Clients\Login.cshtml" />
     <Content Include="Views\Clients\LoginResult.cshtml" />
+    <Content Include="Views\EF\Index.cshtml" />
+    <Content Include="Views\EF\Create.cshtml" />
+    <Content Include="Views\EF\Delete.cshtml" />
+    <Content Include="Views\EF\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
