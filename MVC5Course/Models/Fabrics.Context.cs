@@ -46,5 +46,14 @@ namespace MVC5Course.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_Fabrics_Result>("usp_Fabrics", createClientsParameter, createOrdersParameter);
         }
+    
+        public virtual ObjectResult<usp_GetClientContribution_Result> usp_GetClientContribution(string keyword)
+        {
+            var keywordParameter = keyword != null ?
+                new ObjectParameter("keyword", keyword) :
+                new ObjectParameter("keyword", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_GetClientContribution_Result>("usp_GetClientContribution", keywordParameter);
+        }
     }
 }

@@ -142,6 +142,14 @@ namespace MVC5Course.Controllers
             return View(data);
         }
 
+        public ActionResult ClientContribution3(string keyword)
+        {
+            //http://localhost:10681/EF/ClientContribution3?keyword=Mary
+
+            return View(db.usp_GetClientContribution(keyword));
+        }
+
+
 
      
     }

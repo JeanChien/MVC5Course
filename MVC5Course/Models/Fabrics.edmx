@@ -129,6 +129,9 @@
           <Parameter Name="CreateClients" Type="int" Mode="In" />
           <Parameter Name="CreateOrders" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_GetClientContribution" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="keyword" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="FabricsModelStoreContainer">
           <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Occupation" EntityType="Self.Occupation" Schema="dbo" store:Type="Tables" />
@@ -308,6 +311,9 @@
             <Parameter Name="CreateOrders" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="vw_ClientContribution" EntityType="FabricsModel.vw_ClientContribution" />
+          <FunctionImport Name="usp_GetClientContribution" ReturnType="Collection(FabricsModel.usp_GetClientContribution_Result)">
+          <Parameter Name="keyword" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_Fabrics_Result">
           <Property Type="String" Name="Table" Nullable="false" MaxLength="10" />
@@ -322,6 +328,12 @@
           <Property Name="LastName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="OrderTotal" Type="Decimal" Precision="38" Scale="2" />
         </EntityType>
+        <ComplexType Name="usp_GetClientContribution_Result">
+          <Property Type="Int32" Name="ClientId" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="true" MaxLength="40" />
+          <Property Type="String" Name="LastName" Nullable="true" MaxLength="40" />
+          <Property Type="Decimal" Name="OrderTotal" Nullable="true" Precision="38" Scale="2" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -411,6 +423,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetClientContribution" FunctionName="FabricsModel.Store.usp_GetClientContribution">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FabricsModel.usp_GetClientContribution_Result">
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
