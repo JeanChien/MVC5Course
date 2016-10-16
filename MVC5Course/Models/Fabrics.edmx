@@ -64,7 +64,7 @@
           <Property Name="Price" Type="smallmoney" />
           <Property Name="Active" Type="bit" />
           <Property Name="Stock" Type="numeric" Precision="18" Scale="3" />
-          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Is刪除" Type="bit" />
         </EntityType>
         <Association Name="FK_Client_Occupation">
           <End Role="Occupation" Type="Self.Occupation" Multiplicity="0..1" />
@@ -212,7 +212,7 @@
           <Property Name="Active" Type="Boolean" />
           <Property Name="Stock" Type="Decimal" Precision="18" Scale="3" />
           <NavigationProperty Name="OrderLine" Relationship="Self.fk_OrderLine_ProductId" FromRole="Product" ToRole="OrderLine" />
-          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="Is刪除" Type="Boolean" />
         </EntityType>
         <Association Name="FK_Client_Occupation">
           <End Role="Occupation" Type="Self.Occupation" Multiplicity="0..1" />
@@ -355,7 +355,7 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="FabricsModel.Product">
               <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Is刪除" ColumnName="Is刪除" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
                 <ScalarProperty Name="Price" ColumnName="Price" />

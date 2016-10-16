@@ -114,7 +114,7 @@ namespace MVC5Course.Controllers
             
            // db.Product.Remove(product);
 
-            product.IsDeleted = true;
+            product.Is刪除 = true;
             
             db.SaveChanges();
 
