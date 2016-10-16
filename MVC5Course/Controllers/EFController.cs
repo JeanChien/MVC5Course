@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MVC5Course.Models;
 using System.Data.Entity.Validation;
+using MVC5Course.Models.ViewModels;
 
 namespace MVC5Course.Controllers
 {
@@ -84,23 +85,33 @@ namespace MVC5Course.Controllers
             
         }
 
+        //public ActionResult Add20Percent()
+        //{
+        //    //p 為 集合物件
+        //    var data = db.Product.Where(p => p.ProductName.Contains("White"));
+
+        //    foreach (var item in data) { 
+                
+        //        if (item.Price.HasValue)
+        //        {
+        //            item.Price = item.Price.Value * 1.2m;
+        //        }
+            
+        //    }
+
+        //    db.SaveChanges();
+
+        //    return RedirectToAction("index");            
+
+        //}
+
         public ActionResult Add20Percent()
         {
             //p 為 集合物件
-            var data = db.Product.Where(p => p.ProductName.Contains("White"));
+            string str = "%White%";
+            db.Database.ExecuteSqlCommand("Update dbo.Product set Price=Price*1.2 where ProductName like @p0", str);
 
-            foreach (var item in data) { 
-                
-                if (item.Price.HasValue)
-                {
-                    item.Price = item.Price.Value * 1.2m;
-                }
-            
-            }
-
-            db.SaveChanges();
-
-            return RedirectToAction("index");            
+            return RedirectToAction("index");
 
         }
 
@@ -110,6 +121,27 @@ namespace MVC5Course.Controllers
 
             return View(data);
         }
+
+
+        public ActionResult ClientContribution2(string keyword = "Mary")
+        {
+            var data = db.Database.SqlQuery<ClientContributionViewModel>(@"
+	SELECT
+        c.ClientId,
+		 c.FirstName,
+		 c.LastName,
+		 (SELECT SUM(o.OrderTotal) 
+		  FROM [dbo].[Order] o 
+		  WHERE o.ClientId = c.ClientId) as OrderTotal
+	FROM 
+		[dbo].[Client] as c
+    WHERE
+        c.FirstName LIKE @p0", "%" + keyword + "%");
+
+
+            return View(data);
+        }
+
 
      
     }
