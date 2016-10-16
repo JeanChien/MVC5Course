@@ -23,7 +23,9 @@ namespace MVC5Course.Models
         public int ProductId { get; set; }
         [Required]
         public string ProductName { get; set; }
+        
         [Required]
+        [Range(0,10)]
         public Nullable<decimal> Price { get; set; }
          [Required]
         public Nullable<bool> Active { get; set; }
