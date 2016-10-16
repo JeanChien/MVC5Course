@@ -14,6 +14,14 @@
         <AssociationConnector Association="FabricsModel.fk_Order_ClientId" ManuallyRouted="false" />
         <AssociationConnector Association="FabricsModel.fk_OrderLine_OrderId" ManuallyRouted="false" />
         <AssociationConnector Association="FabricsModel.fk_OrderLine_ProductId" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FabricsModel.vw_ClientContribution" Width="1.5" PointX="0.5" PointY="0.5" />
+      </Diagram>
+      <Diagram DiagramId="7097953d765e4609b55fce5d31747442" Name="Product" >
+        <EntityTypeShape EntityType="FabricsModel.Product" Width="1.5" PointX="3.125" PointY="0.5" />
+        <EntityTypeShape EntityType="FabricsModel.OrderLine" Width="1.5" PointX="5.5" PointY="1" />
+        <AssociationConnector Association="FabricsModel.fk_OrderLine_ProductId" />
+        <EntityTypeShape EntityType="FabricsModel.Order" Width="1.5" PointX="7.75" PointY="1.375" />
+        <AssociationConnector Association="FabricsModel.fk_OrderLine_OrderId" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

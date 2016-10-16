@@ -104,6 +104,13 @@ namespace MVC5Course.Controllers
 
         }
 
+        public ActionResult ClientContribution()
+        {
+            var data = db.vw_ClientContribution.Take(10);
+
+            return View(data);
+        }
+
      
     }
 }

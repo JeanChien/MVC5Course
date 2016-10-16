@@ -12,20 +12,11 @@ namespace MVC5Course.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class vw_ClientContribution
     {
-        public Product()
-        {
-            this.OrderLine = new HashSet<OrderLine>();
-        }
-    
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public Nullable<decimal> Price { get; set; }
-        public Nullable<bool> Active { get; set; }
-        public Nullable<decimal> Stock { get; set; }
-        public bool Is刪除 { get; set; }
-    
-        public virtual ICollection<OrderLine> OrderLine { get; set; }
+        public int ClientId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public Nullable<decimal> OrderTotal { get; set; }
     }
 }
